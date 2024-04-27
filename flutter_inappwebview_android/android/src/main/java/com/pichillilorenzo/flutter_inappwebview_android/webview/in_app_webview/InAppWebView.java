@@ -197,7 +197,7 @@ final public class InAppWebView extends InputAwareWebView implements InAppWebVie
     this.plugin = plugin;
     this.id = id;
     final MethodChannel channel = new MethodChannel(plugin.messenger, METHOD_CHANNEL_NAME_PREFIX + id);
-    this.channelDelegate = new WebViewChannelDelegate(this, channel);
+    try{this.channelDelegate = new WebViewChannelDelegate(this, channel);}catch(Exception e){}
     this.windowId = windowId;
     this.customSettings = customSettings;
     this.contextMenu = contextMenu;
